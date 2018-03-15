@@ -23,28 +23,28 @@ function auth($name, $email, $phone, $pdo)
 {
     $query = 'SELECT * FROM customers WHERE email = :email';
     $cat = $pdo -> prepare($query);
-    $cat -> execute(['email' => $email]);
-    $result = $cat -> fetchAll();
+    $cat->execute(['email' => $email]);
+    $result = $cat->fetchAll();
     if (count($result) === 0) {
         $query = 'INSERT INTO customers VALUE (:name, :email,:phone)';
-        $add = $pdo -> prepare($query);
-        $add -> execute(['name' => $name, 'email'=> $email, 'phone' => $phone]);
+        $add = $pdo->prepare($query);
+        $add->execute(['name' => $name, 'email'=> $email, 'phone' => $phone]);
     }
 }
 function reg_order($adress, $details, $payment, $id, $pdo)
 {
     $query = 'INSERT INTO orders VALUE (NULL , :adress, :details, :payment, :id)';
-    $order =  $pdo -> prepare($query);
-    $order -> execute(['adress' => $adress, 'details' => $details,
+    $order =  $pdo->prepare($query);
+    $order->execute(['adress' => $adress, 'details' => $details,
         'payment' => $payment, 'id' => $id]);
-    $order_id = $pdo -> lastInsertId();
+    $order_id = $pdo->lastInsertId();
     return $order_id;
 }
 function send_mail($id, $order_id, $adress, $pdo)
 {
     $query = 'SELECT * FROM orders WHERE customer_id = :id';
-    $orders = $pdo -> prepare($query);
-    $orders -> execute(['id' => $id]);
+    $orders = $pdo->prepare($query);
+    $orders->execute(['id' => $id]);
     $orders = $orders -> fetchAll();
     $orders = count($orders);
     $orders = ($orders > 1) ? "Спасибо! Это уже {$orders} заказ" :'Спасибо - это ваш первый заказ';

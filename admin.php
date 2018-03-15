@@ -18,8 +18,8 @@
         echo "Невозможно установить соединение с базой данных";
     }
     $query = 'SELECT * FROM customers';
-    $req = $pdo -> query($query);
-    $users = $req -> fetchAll(PDO::FETCH_ASSOC);
+    $req = $pdo->query($query);
+    $users = $req->fetchAll(PDO::FETCH_ASSOC);
     $users_list = '<ol>';
     foreach ($users as $key => $value) {
         $users_list .= "<li>Имя: {$value['name']}</br>
@@ -32,8 +32,8 @@
     <h3>Список заказов</h3>
     <?php
     $query = 'SELECT * FROM orders JOIN customers ON orders.customer_id = customers.email';
-    $req = $pdo -> query($query);
-    $orders = $req -> fetchAll(PDO::FETCH_ASSOC);
+    $req = $pdo->query($query);
+    $orders = $req->fetchAll(PDO::FETCH_ASSOC);
     $orders_list = '<ol>';
     foreach ($orders as $key => $value) {
         $orders_list .= "<li>Заказ № {$value['id']}</br> 
