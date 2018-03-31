@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use ReCaptcha\ReCaptcha;
+
 function validate($POST)
 {
     if ($POST['name'] === '') {
@@ -17,7 +20,15 @@ function validate($POST)
         echo "Укажите форму оплаты";
         return false;
     }
-    return true;
+    $remote_ip = $_SERVER['REMOTE_ADDR'];
+    $g_recapcha_res = $_REQUEST['g-recaptcha-responce'];
+    $recapcha= new ReCaptcha('6LdT208UAAAAAPUesWOC38bSVs2YMAUMAMrFCz_X');
+    $resp = $recapcha->verify($g_recapcha_res, $remote_ip);
+    if ($resp->isSuccess()) {
+        return true;
+    }
+    echo "капча не пройдена";
+    return false;
 }
 function auth($name, $email, $phone, $pdo)
 {
@@ -53,8 +64,22 @@ function send_mail($id, $order_id, $adress, $pdo)
     $headers ='From:Заказ бургера'. "\r\n".
         'MIME-version: 1.0'."\r\n".
         'Content-Type: text/html; charset=UTF-8';
-    $mail = mail($_POST['email'], "Заказ", $body, $headers);
-    if ($mail) {
-        echo 'Письмо успешно отрпавлено';
+    $mail =new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;
+    $mail->Host ='smtp.yandex.ru';
+    $mail->Username = 'test45792@yandex.ru';
+    $mail->Password ='halo45lz';
+    $mail->SMTPSecure="ssl";
+    $mail->Port = 465;
+    $mail->setFrom('test45792@yandex.ru', 'test');
+    $mail->addAddress('jedi59@yandex.ru');
+    $mail->AddReplyTo('test45792@yandex.ru', 'First Last');
+    $mail->CharSet = 'UTF-8';
+    $mail->isHTML(true);
+    $mail->Subject = "Order № $order_id";
+    $mail->Body = $body;
+    if ($mail->send()) {
+        echo 'success';
     }
 }

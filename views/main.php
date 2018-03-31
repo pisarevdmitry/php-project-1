@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Главная страница
     </title>
-    <link rel="stylesheet" href="css/vendors.min.css">
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="../css/vendors.min.css">
+    <link rel="stylesheet" href="../css/main.min.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
   <body>
     <div class="wrapper">
@@ -15,26 +16,26 @@
         <section class="section hero">
           <div class="container">
             <header class="header">
-              <div class="header__logo"><a class="logo" href="#"><img class="logo__icon" src="./img/icons/logo.svg"></a></div>
+              <div class="header__logo"><a class="logo" href="#"><img class="logo__icon" src="../img/icons/logo.svg"></a></div>
               <div class="header__menu">
                 <nav class="nav">
                   <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="1">о нас</a>
+                    <li class="nav__item"><a class="nav__link" href="/">о нас</a>
                     </li>
-                    <li class="nav__item"><a class="nav__link" href="2">бургеры</a>
+                    <li class="nav__item"><a class="nav__link" href="/">бургеры</a>
                     </li>
-                    <li class="nav__item"><a class="nav__link" href="3">команда</a>
+                    <li class="nav__item"><a class="nav__link" href="/">команда</a>
                     </li>
-                    <li class="nav__item"><a class="nav__link" href="4">меню</a>
+                    <li class="nav__item"><a class="nav__link" href="/">меню</a>
                     </li>
-                    <li class="nav__item"><a class="nav__link" href="5">отзывы</a>
+                    <li class="nav__item"><a class="nav__link" href="/">отзывы</a>
                     </li>
-                    <li class="nav__item"><a class="nav__link" href="7">контакты</a>
+                    <li class="nav__item"><a class="nav__link" href="/">контакты</a>
                     </li>
                   </ul>
                 </nav>
               </div>
-              <div class="header__links"><a class="order-link btn" href="6">Заказать</a><a class="hamburger-menu-link" href="">
+              <div class="header__links"><a class="order-link btn" href="/">Заказать</a><a class="hamburger-menu-link" href="">
                   <div class="hamburger-menu-link__bars"></div></a></div>
             </header>
             <div class="hero__container">
@@ -122,7 +123,7 @@
                       <div class="burgers-slider__price">
                         <div class="burgers-slider__price-amount">500</div>
                         <div class="burgers-slider__price-measure">рублей</div>
-                      </div><a class="burgers-slider__buy btn" href="6">Заказать</a>
+                      </div><a class="burgers-slider__buy btn" href="main.php">Заказать</a>
                     </div>
                   </div>
                 </li>
@@ -143,7 +144,7 @@
                       <div class="burgers-slider__price">
                         <div class="burgers-slider__price-amount">500</div>
                         <div class="burgers-slider__price-measure">рублей</div>
-                      </div><a class="burgers-slider__buy btn" href="6">Заказать</a>
+                      </div><a class="burgers-slider__buy btn" href="main.php">Заказать</a>
                     </div>
                   </div>
                 </li>
@@ -164,7 +165,7 @@
                       <div class="burgers-slider__price">
                         <div class="burgers-slider__price-amount">500</div>
                         <div class="burgers-slider__price-measure">рублей</div>
-                      </div><a class="burgers-slider__buy btn" href="6">Заказать</a>
+                      </div><a class="burgers-slider__buy btn" href="main.php">Заказать</a>
                     </div>
                   </div>
                 </li>
@@ -185,7 +186,7 @@
                       <div class="burgers-slider__price">
                         <div class="burgers-slider__price-amount">500</div>
                         <div class="burgers-slider__price-measure">рублей</div>
-                      </div><a class="burgers-slider__buy btn" href="6">Заказать</a>
+                      </div><a class="burgers-slider__buy btn" href="main.php">Заказать</a>
                     </div>
                   </div>
                 </li>
@@ -364,7 +365,7 @@
           <div class="container">
             <div class="section__title">Закажите доставку</div>
             <div class="order__form">
-              <form class="order__form-tag" id="order-form" method="post" action="form.php">
+              <form class="order__form-tag" id="order-form" method="post" action="../form.php">
                 <div class="order__form-col">
                   <div class="order__form-row order__form-row_double">
                     <label class="order__form-block">
@@ -432,6 +433,7 @@
                         <div class="order__radio-title">Не перезванивать</div>
                       </label>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdT208UAAAAAB7WyRZx7IavhPI1Ftn4cGu-ZLWP"></div>
                     <div class="order__form-row">
                       <input class="order__form-button" name="" type="submit" value="Заказать">
                       <input class="order__form-button order__form-button_reset" name="" type="reset" value="Очистить">
@@ -457,17 +459,17 @@
       <div class="hamburger-menu__items">
         <nav class="nav nav_hamburger">
           <ul class="nav__list">
-            <li class="nav__item"><a class="nav__link" href="1">о нас</a>
+            <li class="nav__item"><a class="nav__link" href="main.php">о нас</a>
             </li>
-            <li class="nav__item"><a class="nav__link" href="2">бургеры</a>
+            <li class="nav__item"><a class="nav__link" href="main.php">бургеры</a>
             </li>
-            <li class="nav__item"><a class="nav__link" href="3">команда</a>
+            <li class="nav__item"><a class="nav__link" href="main.php">команда</a>
             </li>
-            <li class="nav__item"><a class="nav__link" href="4">меню</a>
+            <li class="nav__item"><a class="nav__link" href="main.php">меню</a>
             </li>
-            <li class="nav__item"><a class="nav__link" href="5">отзывы</a>
+            <li class="nav__item"><a class="nav__link" href="main.php">отзывы</a>
             </li>
-            <li class="nav__item"><a class="nav__link" href="7">контакты</a>
+            <li class="nav__item"><a class="nav__link" href="main.php">контакты</a>
             </li>
           </ul>
         </nav>
@@ -498,8 +500,8 @@
         <div class="status-popup__message error-message">Произошла ошибка</div><a class="status-popup__close btn" href="#">Закрыть</a>
       </div>
     </div>
-    <script src="js/vendors.min.js"></script>
+    <script src="../js/vendors.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script src="js/main.min.js"></script>
+    <script src="../js/main.min.js"></script>
   </body>
 </html>
